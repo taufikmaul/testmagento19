@@ -1,0 +1,18 @@
+<h1>INI LIST Taufik</h1>
+
+<?php 
+$listTaufik = $this->getItems();
+echo $this->__('Total Data : %1',$listTaufik->getSize());
+?>
+<ol class="list-taufik">
+<?php
+foreach ($listTaufik as $key => $taufik) {
+?>
+    <li class="item-taufik" style="margin-bottom: 10px;">
+        <?= $this->__('Title : ') ?> <?= $taufik->getName(); ?> <br/> 
+        <?= $this->__('Description : ') ?><?= $taufik->getDescription(); ?><br/> 
+        <?= $this->__('Status : ') ?><?= $this->getStatusText($taufik->getIsActive()); ?><br/> 
+        <small>(<?= $this->__('Create at ').$taufik->getCreatedAt(); ?>)</small><br/> 
+    </li>
+<?php } ?>
+</ol>
